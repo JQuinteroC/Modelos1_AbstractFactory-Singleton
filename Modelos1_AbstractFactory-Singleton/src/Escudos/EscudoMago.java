@@ -9,6 +9,9 @@ package Escudos;
  *
  * @author estudiantes
  */
-public class EscudoMago {
-    
+public class EscudoMago extends EscudoAbstracto{
+    @Override
+    public String getMensaje() {
+        return "Escudo De Mana";
+    } 
 }

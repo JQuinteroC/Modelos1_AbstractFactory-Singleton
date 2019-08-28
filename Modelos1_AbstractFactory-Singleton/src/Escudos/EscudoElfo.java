@@ -9,6 +9,9 @@ package Escudos;
  *
  * @author estudiantes
  */
-public class EscudoElfo {
-    
+public class EscudoElfo extends EscudoAbstracto{
+    @Override
+    public String getMensaje() {
+        return "Escudo Elfico";
+    } 
 }

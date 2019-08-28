@@ -9,6 +9,9 @@ package Armas;
  *
  * @author estudiantes
  */
-public class ArmaMago {
-    
+public class ArmaMago extends ArmaAbstracta{
+    @Override
+    public String getMensaje() {
+        return "Baculo de Luz";
+    } 
 }

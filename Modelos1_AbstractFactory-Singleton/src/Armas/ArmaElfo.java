@@ -9,6 +9,9 @@ package Armas;
  *
  * @author estudiantes
  */
-public class ArmaElfo {
-    
+public class ArmaElfo extends ArmaAbstracta{
+    @Override
+    public String getMensaje() {
+        return "Daga Elfica";
+    } 
 }

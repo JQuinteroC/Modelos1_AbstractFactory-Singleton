@@ -9,6 +9,6 @@ package Armas;
  *
  * @author estudiantes
  */
-public class ArmaAbstracta {
-    
+public abstract class ArmaAbstracta {
+    public abstract String getMensaje();
 }

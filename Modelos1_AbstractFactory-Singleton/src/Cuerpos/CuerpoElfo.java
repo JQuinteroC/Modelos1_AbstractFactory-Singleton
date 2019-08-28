@@ -9,6 +9,9 @@ package Cuerpos;
  *
  * @author estudiantes
  */
-public class CuerpoElfo {
-    
+public class CuerpoElfo extends CuerpoAbstracto{
+    @Override
+    public String getMensaje() {
+        return "Cuerpo De Elfo Nocturno";
+    } 
 }

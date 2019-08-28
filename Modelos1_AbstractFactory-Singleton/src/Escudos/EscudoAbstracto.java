@@ -9,6 +9,6 @@ package Escudos;
  *
  * @author estudiantes
  */
-public class EscudoAbstracto {
-    
+public abstract class EscudoAbstracto {
+    public abstract String getMensaje();
 }

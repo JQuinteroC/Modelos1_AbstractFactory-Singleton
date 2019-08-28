@@ -5,12 +5,15 @@
  */
 package Fabricas;
 
+import Armas.ArmaAbstracta;
+import Cuerpos.CuerpoAbstracto;
+import Escudos.EscudoAbstracto;
+
 /**
  *
  * @author estudiantes
  */
 public abstract class FabricaPersonajes {
-
     public abstract CuerpoAbstracto CrearCuerpo();
     public abstract ArmaAbstracta CrearArma();
     public abstract EscudoAbstracto CrearEscudo();

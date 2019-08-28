@@ -5,7 +5,11 @@
  */
 package modelos1_abstractfactory.singleton;
 
+import Armas.ArmaAbstracta;
+import Cuerpos.CuerpoAbstracto;
+import Escudos.EscudoAbstracto;
 import Fabricas.FabricaElfos;
+import Fabricas.FabricaMagos;
 import Fabricas.FabricaPersonajes;
 
 /**
@@ -18,14 +22,24 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        ArmaAbstracta Arma;
+        CuerpoAbstracto Cuerpo;
+        EscudoAbstracto Escudo;
         // Fabrica de Elfos
-        FabricaPersonajes FElfos = new FabricaElfos();
-        Client c1 = new Client(factory1);
-        c1.Run();
+        System.out.println("Fabrica de Elfos");
+        FabricaPersonajes Fabrica = new FabricaElfos();
+        Arma = Fabrica.CrearArma();
+        Cuerpo = Fabrica.CrearCuerpo();
+        Escudo = Fabrica.CrearEscudo();
+        System.out.println("Cuerpo: "+Cuerpo.getMensaje()+"\nArma: "+Arma.getMensaje()+"\nEscudo:"+Escudo.getMensaje());
+        System.out.println();
         // Fabrica de Enanos
-        AbstractFactory factory2 = new ConcreteFactory2();
-        Client c2 = new Client(factory2);
-        c2.Run();
+        System.out.println("Fabrica de Magos");
+        Fabrica = new FabricaMagos();
+        Arma = Fabrica.CrearArma();
+        Cuerpo = Fabrica.CrearCuerpo();
+        Escudo = Fabrica.CrearEscudo();
+        System.out.println("Cuerpo: "+Cuerpo.getMensaje()+"\nArma: "+Arma.getMensaje()+"\nEscudo:"+Escudo.getMensaje());
     }
 
 }

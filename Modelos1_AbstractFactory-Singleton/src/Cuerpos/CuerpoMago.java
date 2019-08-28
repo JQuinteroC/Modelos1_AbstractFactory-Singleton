@@ -9,6 +9,9 @@ package Cuerpos;
  *
  * @author estudiantes
  */
-public class CuerpoMago {
-    
+public class CuerpoMago extends CuerpoAbstracto{
+    @Override
+    public String getMensaje() {
+        return "Cuerpo de Mago Runico";
+    } 
 }

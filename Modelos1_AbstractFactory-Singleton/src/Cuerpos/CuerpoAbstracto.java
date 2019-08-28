@@ -9,6 +9,6 @@ package Cuerpos;
  *
  * @author estudiantes
  */
-public class CuerpoAbstracto {
-    
+public abstract class CuerpoAbstracto {
+    public abstract String getMensaje();
 }
