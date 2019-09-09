@@ -9,9 +9,16 @@ package Armas;
  *
  * @author estudiantes
  */
-public class ArmaMago extends ArmaAbstracta{
+public class ArmaMago extends ArmaAbstracta {
+
     @Override
     public String getMensaje() {
-        return "Baculo de Luz";
-    } 
+        return "Varita de Luz:\n"                    //   
+                + "Con esta herramienta un mago es capaz\n"
+                + "de concentrar y moldear el maná a su\n"
+                + "antojo. los mas grandes hechiceros tienen\n"
+                + "varitas capaces de acumular su propio maná\n"
+                + "lo que permite obtener mayor poder de\n"
+                + "hechizos";
+    }
 }

@@ -5,6 +5,22 @@
  */
 package Ventanas;
 
+import Armas.ArmaAbstracta;
+import Cuerpos.CuerpoAbstracto;
+import Escudos.EscudoAbstracto;
+import Fabricas.FabricaElfos;
+import Fabricas.FabricaMagos;
+import Fabricas.FabricaPersonajes;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
+import javax.swing.*;
+
 /**
  *
  * @author estudiantes
@@ -12,12 +28,42 @@ package Ventanas;
 public class FRM_Principal extends javax.swing.JFrame {
 
     private static FRM_Principal GUI;
-    
+
+    private Image imagen;
+    imagenfondo image = new imagenfondo();
+    Font fuente = new Font("Dialog", Font.BOLD, 20);
+
+    ArmaAbstracta Arma;
+    CuerpoAbstracto Cuerpo;
+    EscudoAbstracto Escudo;
+
     private FRM_Principal() {
+        super("eleccion de personaje");
         initComponents();
+        setResizable(false);
         super.setLocationRelativeTo(null);
+        image.setImage("/Rescursos/fondo.png");
+        image.setLayout(null);
+        setContentPane(image);
+        image.add(mago);
+        image.add(elfo);
+        image.add(elfoLabel);
+        image.add(magoLabel);
+        image.add(titulo);
+        textoArma.setOpaque(false);
+        textoArma.setBackground(new Color(0, 0, 0, 0));
+        textoArma.setBounds(450, 100, 100, 100);
+        textoArma.setFont(fuente);
+        textoEscudo.setOpaque(false);
+        textoEscudo.setBackground(new Color(0, 0, 0, 0));
+        textoEscudo.setBounds(950, 100, 100, 100);
+        textoEscudo.setFont(fuente);
+        textoCuepos.setOpaque(false);
+        textoCuepos.setBackground(new Color(0, 0, 0, 0));
+        textoCuepos.setBounds(600, 550, 100, 100);
+        textoCuepos.setFont(fuente);
     }
-    
+
     public static FRM_Principal getInstance() {
         if (GUI == null) {
             GUI = new FRM_Principal();
@@ -34,35 +80,343 @@ public class FRM_Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        mago = new javax.swing.JLabel();
+        elfo = new javax.swing.JLabel();
+        titulo = new javax.swing.JLabel();
+        magoLabel = new javax.swing.JLabel();
+        elfoLabel = new javax.swing.JLabel();
+        dagita = new javax.swing.JLabel();
+        escudito = new javax.swing.JLabel();
+        pocioncitas = new javax.swing.JLabel();
+        varitita = new javax.swing.JLabel();
+        volver = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textoArma = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        textoCuepos = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        textoEscudo = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                formComponentAdded(evt);
+            }
+        });
 
-        jButton1.setText("jButton1");
+        mago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Rescursos/hechizero.png"))); // NOI18N
+        mago.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                magoMouseClicked(evt);
+            }
+        });
+
+        elfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Rescursos/elfo.png"))); // NOI18N
+        elfo.setMaximumSize(new java.awt.Dimension(195, 402));
+        elfo.setMinimumSize(new java.awt.Dimension(195, 402));
+        elfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                elfoMouseClicked(evt);
+            }
+        });
+
+        titulo.setBackground(new java.awt.Color(102, 255, 102));
+        titulo.setFont(new java.awt.Font("Wide Latin", 1, 24)); // NOI18N
+        titulo.setForeground(new java.awt.Color(51, 255, 51));
+        titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Rescursos/titulouwu.PNG"))); // NOI18N
+
+        magoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Rescursos/magouwu.PNG"))); // NOI18N
+
+        elfoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Rescursos/elfouwu.PNG"))); // NOI18N
+
+        dagita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Rescursos/daga.png"))); // NOI18N
+
+        escudito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Rescursos/escudo.png"))); // NOI18N
+
+        pocioncitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Rescursos/pociones.png"))); // NOI18N
+
+        varitita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Rescursos/varita.png"))); // NOI18N
+
+        volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Rescursos/return.png"))); // NOI18N
+        volver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                volverMouseClicked(evt);
+            }
+        });
+
+        textoArma.setEditable(false);
+        textoArma.setColumns(20);
+        textoArma.setRows(5);
+        textoArma.setText("saldkñlaskdñasldkfñasdf\ndasf\nasd\nfasd\nf\nasd\nfasdfsadfas\ndf\nas\ndfasdf");
+        textoArma.setEnabled(false);
+        jScrollPane1.setViewportView(textoArma);
+
+        textoCuepos.setEditable(false);
+        textoCuepos.setColumns(20);
+        textoCuepos.setRows(5);
+        textoCuepos.setText("dasdasdasdadsadsdassadsda\nadsadsdsadsadsasddsasaddsa\nsaddasdsaadsdsaadssdadsasda\ndsasdadsadsadsaadsdsadasdsa\ndsasdadsadsadsaadsdsadasdsa\ndsasdadsadsadsaadsdsadasdsa\ndsasdadsadsadsaadsdsadasdsa\ndsasdadsadsadsaadsdsadasdsa\ndsasdadsadsadsaadsdsadasdsa\ndsasdadsadsadsaadsdsadasdsa\ndsasdadsadsadsaadsdsadasdsa");
+        textoCuepos.setEnabled(false);
+        jScrollPane2.setViewportView(textoCuepos);
+
+        textoEscudo.setEditable(false);
+        textoEscudo.setColumns(20);
+        textoEscudo.setRows(5);
+        textoEscudo.setText("dsasdadsadsadsaadsdsadasdsa\ndsasdadsadsadsaadsdsadasdsa\ndsasdadsadsadsaadsdsadasdsa\ndsasdadsadsadsaadsdsadasdsa\ndsasdadsadsadsaadsdsadasdsa\ndsasdadsadsadsaadsdsadasdsa\ndsasdadsadsadsaadsdsadasdsa\ndsasdadsadsadsaadsdsadasdsa\ndsasdadsadsadsaadsdsadasdsa\ndsasdadsadsadsaadsdsadasdsa\ndsasdadsadsadsaadsdsadasdsa\ndsasdadsadsadsaadsdsadasdsa\ndsasdadsadsadsaadsdsadasdsa");
+        textoEscudo.setEnabled(false);
+        textoEscudo.setRequestFocusEnabled(false);
+        jScrollPane3.setViewportView(textoEscudo);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(212, 212, 212)
-                .addComponent(jButton1)
-                .addContainerGap(349, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addComponent(elfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mago)
+                .addGap(43, 43, 43))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(elfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(magoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(156, 156, 156)
+                    .addComponent(dagita, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(458, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(155, 155, 155)
+                    .addComponent(escudito, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(459, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(459, 459, 459)
+                    .addComponent(pocioncitas, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(155, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(458, 458, 458)
+                    .addComponent(varitita, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(156, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(407, 407, 407)
+                    .addComponent(volver, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(207, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(457, 457, 457)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(157, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(432, 432, 432)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(182, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(429, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(185, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(337, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(85, 85, 85))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(mago)
+                    .addComponent(elfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(magoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(elfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(467, 467, 467)
+                    .addComponent(dagita, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(165, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(164, 164, 164)
+                    .addComponent(escudito, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(468, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(443, 443, 443)
+                    .addComponent(pocioncitas, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(189, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(467, 467, 467)
+                    .addComponent(varitita, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(165, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(416, 416, 416)
+                    .addComponent(volver, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(216, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(431, 431, 431)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(201, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(424, 424, 424)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(208, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(439, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(193, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void elfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_elfoMouseClicked
+        image.removeAll();
+
+        FabricaPersonajes Fabrica = new FabricaElfos();
+        Arma = Fabrica.CrearArma();
+        Cuerpo = Fabrica.CrearCuerpo();
+        Escudo = Fabrica.CrearEscudo();
+
+        setSize(1500, 1000);
+        setLocationRelativeTo(null);
+        escudito.setBounds(700, 1, 500, 500);
+        dagita.setBounds(50, 1, 500, 500);
+        elfo.setBounds(300, 550, 218, 315);
+        volver.setBounds(50, 500, 500, 500);
+        jScrollPane1.setOpaque(false);
+        jScrollPane1.setBackground(new Color(0, 0, 0, 0));
+        image.add(dagita);
+        image.add(escudito);
+        image.add(elfo);
+        image.add(volver);
+
+        textoArma.setOpaque(false);
+        textoArma.setBackground(new Color(0, 0, 0, 0));
+        textoArma.setBounds(350, 100, 500, 500);
+        textoArma.setFont(fuente);
+        textoArma.setText(Arma.getMensaje());
+
+        textoEscudo.setOpaque(false);
+        textoEscudo.setBackground(new Color(0, 0, 0, 0));
+        textoEscudo.setBounds(1050, 100, 500, 500);
+        textoEscudo.setFont(fuente);
+        textoEscudo.setText(Escudo.getMensaje());
+
+        textoCuepos.setOpaque(false);
+        textoCuepos.setBackground(new Color(0, 0, 0, 0));
+        textoCuepos.setBounds(600, 550, 700, 300);
+        textoCuepos.setFont(fuente);
+        textoCuepos.setText(Cuerpo.getMensaje());
+
+        image.add(textoArma);
+        image.add(textoEscudo);
+        image.add(textoCuepos);
+        image.revalidate();
+        image.repaint();
+    }//GEN-LAST:event_elfoMouseClicked
+
+
+    private void formComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_formComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formComponentAdded
+
+    private void volverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volverMouseClicked
+        image.removeAll();
+        setSize(614, 690);
+        setLocationRelativeTo(null);
+        elfo.setLocation(38, 226);
+        mago.setLocation(378, 139);
+        image.add(mago);
+        image.add(elfo);
+        image.add(elfoLabel);
+        image.add(magoLabel);
+        image.add(titulo);
+        image.revalidate();
+        image.repaint();
+    }//GEN-LAST:event_volverMouseClicked
+
+    private void magoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_magoMouseClicked
+        image.removeAll();
+        
+        FabricaPersonajes Fabrica = new FabricaMagos();
+        Arma = Fabrica.CrearArma();
+        Cuerpo = Fabrica.CrearCuerpo();
+        Escudo = Fabrica.CrearEscudo();
+        
+        setSize(1500, 1000);
+        setLocationRelativeTo(null);
+        pocioncitas.setBounds(730, 1, 500, 500);
+        varitita.setBounds(50, 1, 500, 500);
+        mago.setBounds(300, 550, 218, 405);
+        volver.setBounds(50, 500, 500, 500);
+        jScrollPane1.setOpaque(false);
+        jScrollPane1.setBackground(new Color(0, 0, 0, 0));
+        
+        image.add(pocioncitas);
+        image.add(varitita);
+        image.add(mago);
+        image.add(volver);
+        
+        textoArma.setOpaque(false);
+        textoArma.setBackground(new Color(0, 0, 0, 0));
+        textoArma.setBounds(320, 100, 500, 500);
+        textoArma.setFont(fuente);
+        textoArma.setText(Arma.getMensaje());
+        
+        textoEscudo.setOpaque(false);
+        textoEscudo.setBackground(new Color(0, 0, 0, 0));
+        textoEscudo.setBounds(1050, 100, 500, 500);
+        textoEscudo.setFont(fuente);
+        textoEscudo.setText(Escudo.getMensaje());
+        
+        textoCuepos.setOpaque(false);
+        textoCuepos.setBackground(new Color(0, 0, 0, 0));
+        textoCuepos.setBounds(600, 550, 710, 300);
+        textoCuepos.setFont(fuente);
+        textoCuepos.setText(Cuerpo.getMensaje());
+        
+        image.add(textoArma);
+        image.add(textoEscudo);
+        image.add(textoCuepos);
+        image.revalidate();
+        image.repaint();
+    }//GEN-LAST:event_magoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel dagita;
+    private javax.swing.JLabel elfo;
+    private javax.swing.JLabel elfoLabel;
+    private javax.swing.JLabel escudito;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel mago;
+    private javax.swing.JLabel magoLabel;
+    private javax.swing.JLabel pocioncitas;
+    private javax.swing.JTextArea textoArma;
+    private javax.swing.JTextArea textoCuepos;
+    private javax.swing.JTextArea textoEscudo;
+    private javax.swing.JLabel titulo;
+    private javax.swing.JLabel varitita;
+    private javax.swing.JLabel volver;
     // End of variables declaration//GEN-END:variables
+
 }

@@ -12,27 +12,6 @@ import Ventanas.FRM_Principal;
 public class Main {
 
     public static void main(String[] args) {
-        ArmaAbstracta Arma;
-        CuerpoAbstracto Cuerpo;
-        EscudoAbstracto Escudo;
-        
-        // Fabrica de Elfos
-        System.out.println("Fabrica de Elfos");
-        FabricaPersonajes Fabrica = new FabricaElfos();
-        Arma = Fabrica.CrearArma();
-        Cuerpo = Fabrica.CrearCuerpo();
-        Escudo = Fabrica.CrearEscudo();
-        System.out.println("Cuerpo: "+Cuerpo.getMensaje()+"\nArma: "+Arma.getMensaje()+"\nEscudo:"+Escudo.getMensaje());
-        System.out.println();
-        
-        // Fabrica de Enanos
-        System.out.println("Fabrica de Magos");
-        Fabrica = new FabricaMagos();
-        Arma = Fabrica.CrearArma();
-        Cuerpo = Fabrica.CrearCuerpo();
-        Escudo = Fabrica.CrearEscudo();
-        System.out.println("Cuerpo: "+Cuerpo.getMensaje()+"\nArma: "+Arma.getMensaje()+"\nEscudo:"+Escudo.getMensaje());
-        
         // <editor-fold defaultstate="collapsed" desc="Mostrar ventana principal">
         FRM_Principal ventana = FRM_Principal.getInstance();
 
