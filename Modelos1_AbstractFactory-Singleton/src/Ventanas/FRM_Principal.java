@@ -40,7 +40,6 @@ public class FRM_Principal extends javax.swing.JFrame {
     private FRM_Principal() {
         super("eleccion de personaje");
         initComponents();
-        System.err.println(getSize());
         setResizable(false);
         super.setLocationRelativeTo(null);
         image.setImage("/Rescursos/fondo.png");
